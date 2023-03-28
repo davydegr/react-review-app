@@ -11,19 +11,22 @@ function FeedbackForm() {
   const [message, setMessage] = useState('')
 
   const handleTextChange = (event) => {
+    // Set an instant text because the state updates a little bit slower
+    const instantText = event.target.value
 
-    if(text === '') {
+    if(instantText === '') {
       setBtnDisabled(true)
       setMessage(null)
-    } else if(text !== '' && text.trim().length <= 9) {
+    } else if(instantText !== '' && instantText.trim().length < 10) {
       setBtnDisabled(true)
-      setMessage(`Text must be at least 10 characters (currently ${text.trim().length})`)
+      setMessage(`Text must be at least 10 characters (currently ${instantText.trim().length})`)
     } else {
       setMessage(null)
       setBtnDisabled(false)
     }
 
     setText(event.target.value)
+
   }
 
   return (
