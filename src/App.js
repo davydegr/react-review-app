@@ -3,6 +3,7 @@ import React from 'react'
 import Header from "./components/Header"
 import FeedbackData from "./data/FeedbackData"
 import FeedbackList from "./components/FeedbackList"
+import FeedbackStats from "./components/FeedbackStats"
 
 function App() {
 
@@ -20,6 +21,9 @@ function App() {
   return (
     <>
       <Header />
+
+      <FeedbackStats feedback={feedback}/>
+
       <div className="container">
         <FeedbackList
           feedback={feedback}
